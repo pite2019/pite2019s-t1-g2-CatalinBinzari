@@ -1,28 +1,40 @@
-# Write a module that will simulate autonomic car.
-# The simulation is event based, an example:
-# car1 = Car()
-# car1.act(event)
-# print(car1.wheel_angle, car1.speed)
-# where event can be anything you want, i.e. :
-# `('obstacle', 10)` where `10` is a duration (time) of the event.
-##The program should:
-# - act on the event
-# - print out current steering wheel angle, and speed
-# - run in infinite loop
-# - until user breaks the loop
+class Car:
+    def scanSpeed(self,speed):
+        self.speed=speed
+    def printSpeed(self):
+        print(" speed : %s" %self.speed)
+    def acceleration(self,seconds):
+        a=0;
+        while a<seconds:
+            self.speed=self.speed+10
+            a=a+1
+            if(self.speed>220):
+                self.speed=220
+                print("The car accelerated,now car has she speed: ",self.speed)
+                print("Car obtained the maximum speed")
+                break
+            else:
+                print("The car accelerated,now car has she speed: ",self.speed)
+    def mountain_inclination(self,seconds):
+        print("WOW! I see the mountains on the horizon")
+        a=0
+        while a<seconds:
+            if self.speed>0:
+                self.speed=self.speed-20
+                print("Attention, the speed of the car decreases,now car has she speed: ",self.speed)
+            else:
+                self.speed=0
+                print("The car stopped , now car has the speed :0")
+                print("I did not have to climb mountains with such an old car")
+                break
 
-#The level of realism in simulation is of your choice, but more sophisticated solutions are better.
-#If you can thing of any other features, you can add them.
-#Make intelligent use of pythons syntactic sugar (overloading, iterators, generators, etc)
-#Most of all: CREATE GOOD, RELIABLE, READABLE CODE.
-#The goal of this task is for you to SHOW YOUR BEST python programming skills.
-#Impress everyone with your skills, show off with your code.
-#
-#Your program must be runnable with command "python task.py".
-#Show some usecases of your library in the code (print some things)
-#
-#When you are done upload this code to github repository. 
-#
-#Delete these comments before commit!
-#Good luck.
-    
+
+
+
+car1=Car()
+car1.scanSpeed(45)
+car1.printSpeed()
+car1.acceleration(3)
+car1.printSpeed()
+car1.acceleration(40)
+car1.mountain_inclination(10)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   1,1        
